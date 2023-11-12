@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merged Videos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://vjs.zencdn.net/7.16.0/video-js.css" rel="stylesheet">
+    <style>
+        /* Existing styles */
+        .video-container {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            display: block;
+            padding-bottom: 56.25%;
+        }
+
+        #mergedVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .vjs-big-play-button {
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* Additional styles */
+        .vjs-default-skin.vjs-has-started .vjs-control-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .vjs-default-skin.vjs-has-started .vjs-control {
+            color: white;
+        }
+
+        .vjs-default-skin.vjs-has-started .vjs-slider {
+            background: #fff;
+        }
+
+        .vjs-default-skin.vjs-has-started .vjs-progress-holder {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .vjs-default-skin.vjs-has-started .vjs-menu-button-popup {
+            background: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="video-container">
+            <video id="mergedVideo" class="video-js" controls>
+                <source src="video1.mp4" type="video/mp4">
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <script src="https://vjs.zencdn.net/7.16.0/video.min.js"></script>
+    <script>
+        var player = videojs('mergedVideo');
+
+        player.ready(function() {
+            player.play();
+
+            player.on('ended', function() {
+                if (player.src() === 'video1.mp4') {
+                    player.src({
+                        src: 'video2.mp4',
+                        type: 'video/mp4'
+                    });
+                } else {
+                    player.src({
+                        src: 'video1.mp4',
+                        type: 'video/mp4'
+                    });
+                }
+                player.play();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Resize</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            width: 300px;
+            height: 200px;
+        }
+
+        .image-container.original:before {
+            content: 'Actual image';
+            display: block;
+            position: absolute;
+            top: -20px;
+            left: 0;
+            background: #fff;
+            padding: 0 5px;
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crop the image without stretching */
+        }
+
+        .icon-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .resized-image {
+            object-fit: cover; /* Crop the resized image without stretching */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 1)</h2>
+                <img src="image1.jpg" class="original-image" alt="Original Image 1">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 1)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas1" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 2)</h2>
+                <img src="image2.jpg" class="original-image" alt="Original Image 2">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 2)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas2" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 3)</h2>
+                <img src="image3.jpg" class="original-image" alt="Original Image 3">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 3)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas3" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 4)</h2>
+                <img src="image4.jpg" class="original-image" alt="Original Image 4">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 4)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas4" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 5)</h2>
+                <img src="image5.jpg" class="original-image" alt="Original Image 5">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 5)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas5" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 6)</h2>
+                <img src="image6.jpg" class="original-image" alt="Original Image 6">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 6)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas6" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 7)</h2>
+                <img src="image7.jpg" class="original-image" alt="Original Image 7">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 7)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas7" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 8)</h2>
+                <img src="image8.jpg" class="original-image" alt="Original Image 8">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 8)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas8" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 9)</h2>
+                <img src="image9.jpg" class="original-image" alt="Original Image 9">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 9)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas9" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6">
+                <h2>Actual image (Image 10)</h2>
+                <img src="image10.jpg" class="original-image" alt="Original Image 10">
+            </div>
+            <div class="col-md-6">
+                <h2>After Resizing (Image 10)</h2>
+                <div class="image-container">
+                    <canvas id="resizedCanvas10" width="300" height="200"></canvas>
+                    <div class="icon-overlay"><img src="icon.png" alt="Icon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+            function resizeImage(imageSrc, canvasId) {
+            var canvas = document.getElementById(canvasId);
+            var context = canvas.getContext('2d');
+            var img = new Image();
+
+            img.onload = function() {
+                context.drawImage(img, 0, 0, 300, 200); 
+            };
+
+            img.src = imageSrc; 
+        }
+
+        $(document).ready(function() {
+            resizeImage('image1.jpg', 'resizedCanvas1'); 
+            resizeImage('image2.jpg', 'resizedCanvas2'); 
+			resizeImage('image3.jpg', 'resizedCanvas3');
+			resizeImage('image4.jpg', 'resizedCanvas4');
+			resizeImage('image5.jpg', 'resizedCanvas5');
+			resizeImage('image6.jpg', 'resizedCanvas6');
+			resizeImage('image7.jpg', 'resizedCanvas7');
+			resizeImage('image8.jpg', 'resizedCanvas8');
+			resizeImage('image9.jpg', 'resizedCanvas9');
+			resizeImage('image10.jpg', 'resizedCanvas10');
+        });
+    </script>
+</body>
+</html>
